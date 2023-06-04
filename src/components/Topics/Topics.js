@@ -1,18 +1,19 @@
-import React from 'react';
-import { useLoaderData, useRouteLoaderData } from 'react-router-dom';
+import React from "react";
+import { useLoaderData, useRouteLoaderData } from "react-router-dom";
+import { topicsLoader } from "../../DataLoader/topicsLoader";
+import SingleTopic from "../SingleTopic/SingleTopic";
 
 const Topics = () => {
-    try{
-        const topics = useLoaderData();
-    console.log(topics);
-    } catch(error){
-        console.log(error);
-    }
-    return (
-        <div className='mt-20'>
+  const topics = useLoaderData().data;
 
-        </div>
-    );
+  return <div className="mt-2 flex ">
+    {
+        topics.map(topic=> <SingleTopic
+                                key={topic.id}
+                                topic={topic}
+                            ></SingleTopic>)
+    }
+    </div>;
 };
 
 export default Topics;

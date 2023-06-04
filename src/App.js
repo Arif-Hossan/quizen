@@ -14,12 +14,15 @@ function App() {
       children : [
         {
           path:'/',
+          loader:topicsLoader,
           element:<Home></Home>
         },
         {
           path:'/home',
+          loader:topicsLoader,
           element:<Home></Home>
-        }
+        },
+
       ]
     },
     {
