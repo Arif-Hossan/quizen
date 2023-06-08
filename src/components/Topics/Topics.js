@@ -1,12 +1,11 @@
 import React from "react";
-import { useLoaderData, useRouteLoaderData } from "react-router-dom";
-import { topicsLoader } from "../../DataLoader/topicsLoader";
+import { useLoaderData } from "react-router-dom";
 import SingleTopic from "../SingleTopic/SingleTopic";
 
 const Topics = () => {
   const topics = useLoaderData().data;
 
-  return <div className="mt-2 flex ">
+  return <div className="mt-2 md:flex ">
     {
         topics.map(topic=> <SingleTopic
                                 key={topic.id}

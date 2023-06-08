@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import Topics from "./components/Topics/Topics";
 import { topicsLoader } from "./DataLoader/topicsLoader";
 import Main from "./layouts/Main";
+import Quiz from "./components/Quiz/Quiz";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,6 +23,13 @@ function App() {
           loader:topicsLoader,
           element:<Home></Home>
         },
+        {
+          path:'/topics/:id',
+          loader : async ({params}) => {
+            return fetch (`https://openapi.programming-hero.com/api/quiz/${params.id}`)
+          },
+          element:<Quiz></Quiz>
+        }
 
       ]
     },
